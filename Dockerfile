@@ -1,5 +1,6 @@
 FROM archlinux
-RUN pacman -Syu --noconfirm --needed git base-devel
+RUN pacman -Syu --noconfirm \
+    --needed git base-devel vi vim wget tree tmux man-db
 
 RUN echo "zhugy ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
     && useradd --create-home zhugy
@@ -12,3 +13,5 @@ RUN git clone https://aur.archlinux.org/yay /tmp/yay \
     && rm -rf /tmp/yay
 
 WORKDIR /home/zhugy
+
+RUN sudo pacman -Syu --noconfirm jdk17-openjdk sbt
