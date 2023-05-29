@@ -1,6 +1,6 @@
 FROM archlinux
 RUN pacman -Syu --noconfirm \
-    --needed git base-devel vi vim wget tree tmux man-db
+    --needed git base-devel vi vim wget tree tmux
 
 RUN echo "zhugy ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
     && useradd --create-home zhugy
