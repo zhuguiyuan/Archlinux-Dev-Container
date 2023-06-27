@@ -1,6 +1,7 @@
 FROM archlinux
+RUN echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
 RUN pacman -Syu --noconfirm \
-    --needed git base-devel vi vim wget tree tmux tldr
+    --needed base-devel git go vi vim wget tree tmux tldr
 
 RUN echo "zhugy ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
     && useradd --create-home zhugy
